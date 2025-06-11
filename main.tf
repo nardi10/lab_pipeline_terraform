@@ -5,14 +5,13 @@ terraform {
     resource_group_name  = "Edvaldo"
     storage_account_name = "tfstatestoreed"
     container_name       = "tfstate"
-    key                  = "teste.tfstate"
+    key                  = "teste.tfstate" # Você pode usar "${terraform.workspace}.tfstate" para cada branch
   }
 }
 
 provider "azurerm" {
   features {}
 }
-
 
 resource "azurerm_resource_group" "example" {
   name     = "rg-projetoA-dev"
