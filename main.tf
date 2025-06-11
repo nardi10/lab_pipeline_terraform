@@ -5,7 +5,7 @@ terraform {
     resource_group_name  = "Edvaldo"
     storage_account_name = "tfstatestoreed"
     container_name       = "tfstate"
-    key                  = "dev.tfstate" # Altere dinamicamente se necessário por branch
+    key                  = "dev-1.tfstate" # Altere dinamicamente se necessário por branch
   }
 }
 
