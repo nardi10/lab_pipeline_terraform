@@ -17,7 +17,7 @@ resource "azurerm_resource_group" "example" {
   name     = "rg-projetoA-pre"
   location = var.location
   tags = {
-    environment = "pre"
+    environment = "pre-teste"
     project     = "projetoA"
   }
 }
