@@ -1,0 +1,23 @@
+terraform {
+  required_version = ">= 1.6.0"
+
+  backend "azurerm" {
+    resource_group_name  = "Edvaldo"
+    storage_account_name = "tfstatestoreed"
+    container_name       = "tfstate"
+    key                  = "teste-pre.tfstate" # Você pode usar "${terraform.workspace}.tfstate" para cada branch
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "rg-projetoA-pre"
+  location = var.location
+  tags = {
+    environment = "pre"
+    project     = "projetoA"
+  }
+}
