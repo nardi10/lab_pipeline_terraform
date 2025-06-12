@@ -14,10 +14,11 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "rg-projetoA-dev"
+  name     = "rg-projetoA-change-pre"
   location = var.location
   tags = {
-    environment = "dev"
+    environment = "change-pre"
     project     = "projetoA"
+
   }
 }
