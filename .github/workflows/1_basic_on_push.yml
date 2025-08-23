@@ -1,14 +1,22 @@
-name: GitHub Actions - Pull - Branch Template
+name: GitHub Actions - Worflow dispatch Template - Choice
 run-name: Running - ${{ github.event_name }}
 on:
-  pull_request:
-    branches:
-      # - develop
-      - main
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: Selecione a tag
+        type: choice
+        options:
+          - tag_1
+          - tag_2
+          - tag_3
+        default: 'tag_1'
+        required: true
+
 jobs:
-  on-push:
+  on-workflow_dispatch:
     runs-on: ubuntu-latest
     steps:
       - name: Comentário
         run: |
-          echo "Comentário PULL REQUEST WORKFLOW - branch"
+          echo "Comentário Worflow dispatch - ${{inputs.tags}}"
