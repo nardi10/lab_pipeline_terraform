@@ -3,7 +3,6 @@ run-name: Running - ${{ github.event_name }}
 on:
   push:
     branches:
-      - main
       - master
       - develop
       - 'release/**'
