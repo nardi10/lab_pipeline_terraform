@@ -1,12 +1,27 @@
-name: GitHub Actions - Workflow run Basic Template
-run-name: Running - Workflow run Basic Template
-on: 
-  workflow_run:
-    workflows: [GitHub Actions - Trigger 1]
+name: GitHub Actions - Teste com dependência Template
+run-name: Running - Teste com dependência Template
+on: [push, workflow_dispatch]
+
 jobs:
-  on-push:
+  test_unit:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo "Execução Setup"
+
+  test_api:
+    # needs: test_unit
     runs-on: ubuntu-latest
     steps:
       - name: Comentário
         run: |
-          echo "Workflow que foi trigado"
+          echo "Execução test"
+  
+  test_ui:
+    needs: [test_unit, test_api]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo "Execução test"
